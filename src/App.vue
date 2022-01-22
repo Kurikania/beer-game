@@ -2,7 +2,7 @@
   <v-app>
     <v-main class="main">
       <v-container class="d-flex flex-column justify-space-between">
-        <v-row class="mt-2 justify-self-start" align="center" justify="start">
+        <v-row class="justify-self-start" align="center" justify="start">
           <v-col>
             <h1 class="mx-auto text-center pb-0"> Beer Game </h1>
           </v-col>
@@ -13,7 +13,7 @@
           </v-col>
           <v-col transition="slide-y-reverse-transition">
             <Statistics v-if="isStatsShown" :allRatings="allRatings" @switchStats="switchStats"/>
-            <Card v-else :beer="beer" @refresh="fetchBeerData" @updRating="setRating"/>
+            <BeerCard v-else :beer="beer" @refresh="fetchBeerData" @updRating="setRating"/>
           </v-col>
         </v-row>
       </v-container>
@@ -78,7 +78,7 @@ export default {
           try {
             items[entry[0]] = JSON.parse(entry[1]);
           } catch (err) {
-            console.log(err)
+
           }
         });
       }
@@ -103,6 +103,19 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~vuetify/src/styles/settings/_colors.scss';
+body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .container {
   height: 100%
 }
@@ -117,6 +130,12 @@ export default {
   position: absolute;
   width: 100vw;
   height: 100vh;
+}
+
+@media screen and (min-height: 900px) {
+  .main {
+    overflow-y: hidden;
+  }
 }
 
 .card-container {
