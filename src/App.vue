@@ -12,10 +12,10 @@
             <UserCard :user="user" @switchStats="switchStats"/>
           </v-col>
           <v-col>
-            <v-fade-transition>
+            <v-fade-transition leave-absolute>
               <Statistics key=1 v-if="isStatsShown" :allRatings="allRatings" @switchStats="switchStats"/>
               <BeerCard key=2 v-else :beer="beer" @refresh="fetchBeerData" @updRating="setRating"/>
-              </v-fade-transition>
+             </v-fade-transition>
           </v-col>
         </v-row>
       </v-container>
