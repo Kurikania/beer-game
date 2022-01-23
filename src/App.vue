@@ -104,15 +104,15 @@ export default {
 
 <style lang="scss">
 @import '~vuetify/src/styles/settings/_colors.scss';
-body::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+.main::-webkit-scrollbar-thumb {
+  background: rgba(245, 102, 0, 0.35);
 }
 
-body::-webkit-scrollbar {
+.main::-webkit-scrollbar {
   width: 6px;
 }
 
-body::-webkit-scrollbar-track {
+.main::-webkit-scrollbar-track {
   background: transparent;
 }
 

@@ -67,7 +67,7 @@ export default {
 }
 
 .v-card__text::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(245, 102, 0, 0.35);
 }
 
 .v-card__text::-webkit-scrollbar {
