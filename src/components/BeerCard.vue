@@ -13,7 +13,7 @@
       ></v-progress-linear>
     </template>
 
-    <v-card-title><span class="text--lighten-2">We recommend you to try &nbsp;</span> {{ beer.name }}</v-card-title>
+    <v-card-title><span class="text--lighten-2">We recommend you to try &nbsp;<br/> </span> {{ beer.name }}</v-card-title>
 
     <v-card-text>
       <v-row

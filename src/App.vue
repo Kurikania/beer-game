@@ -7,13 +7,15 @@
             <h1 class="mx-auto text-center pb-0"> Beer Game </h1>
           </v-col>
         </v-row>
-        <v-row class="card-container">
+        <v-row class="card-container mx-auto">
           <v-col>
             <UserCard :user="user" @switchStats="switchStats"/>
           </v-col>
-          <v-col transition="slide-y-reverse-transition">
-            <Statistics v-if="isStatsShown" :allRatings="allRatings" @switchStats="switchStats"/>
-            <BeerCard v-else :beer="beer" @refresh="fetchBeerData" @updRating="setRating"/>
+          <v-col>
+            <v-fade-transition>
+              <Statistics key=1 v-if="isStatsShown" :allRatings="allRatings" @switchStats="switchStats"/>
+              <BeerCard key=2 v-else :beer="beer" @refresh="fetchBeerData" @updRating="setRating"/>
+              </v-fade-transition>
           </v-col>
         </v-row>
       </v-container>
@@ -104,6 +106,7 @@ export default {
 
 <style lang="scss">
 @import '~vuetify/src/styles/settings/_colors.scss';
+
 .main::-webkit-scrollbar-thumb {
   background: rgba(245, 102, 0, 0.35);
 }
@@ -117,7 +120,8 @@ export default {
 }
 
 .container {
-  height: 100%
+  height: 100%;
+  max-height: 1200px;
 }
 
 .justify-self-start {
@@ -139,6 +143,7 @@ export default {
 }
 
 .card-container {
+  max-width: 1400px;
   position: relative;
   z-index: 10;
 }
@@ -149,7 +154,7 @@ export default {
   top: 90%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 400px;
+  height: 300px;
   overflow: visible;
   z-index: 0;
 }
